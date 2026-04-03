@@ -177,6 +177,7 @@ jobs:
         run: |
           echo "Stopping all containers..."
           docker compose down --remove-orphans || true
+          docker rm -f postgres-db || true
 
       - name: Remove old images
         run: |
