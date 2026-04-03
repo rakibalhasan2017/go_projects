@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS books (
+  id SERIAL PRIMARY KEY,
+  title TEXT NOT NULL,
+  author TEXT NOT NULL,
+  published_date DATE,
+  price NUMERIC(10, 2) NOT NULL DEFAULT 0,
+  image_url TEXT NOT NULL DEFAULT '',
+  created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
