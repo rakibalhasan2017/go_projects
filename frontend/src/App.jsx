@@ -13,6 +13,19 @@ function App() {
   });
   const [editingId, setEditingId] = useState(null);
 
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await axios.get(API_URL);
+        setBooks(response.data);
+      } catch (error) {
+        console.error("Error fetching books:", error);
+      }
+    };
+
+    fetchBooks();
+  }, []);
+
   const fetchBooks = async () => {
     try {
       const response = await axios.get(API_URL);
@@ -21,10 +34,6 @@ function App() {
       console.error("Error fetching books:", error);
     }
   };
-
-  useEffect(() => {
-    fetchBooks();
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
